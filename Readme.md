@@ -9,17 +9,18 @@ It works by parsing the output of 'snmpwalk', followed by determining all elemen
 Net-SNMP tools `snmpwalk`, `snmpset` and `snmpget`
 
 # Usage
-`snmp-write-check.py [OPTIONS] AGENT [PARAMETERS]`
+`snmp-write-check.py [OPTIONS] AGENT [BASE_OID] [PARAMETERS] --show-tested-oids`
 where 
 * `[OPTIONS]` includes info like version `-v`, community string `-c` or credentials for v3
 * `AGENT` represents the IP address or hostname of device
+* `[BASE_OID]` is the optional OID to start the walk from
+* `--show-tested-oids` is a flag to show the list of tested OIDs (writeable or not)
 
 these will be passed directly to `snmpwalk`, `snmpset` and `snmpget`
 
-**DISCLAIMAR** The script might change the value of the writable OID or cause other effects. Use with care.
+**DISCLAIMER** The script might change the value of the writable OID or cause other effects. Use with care.
 
-
-# SNMP Security Recommandations
+# SNMP Security Recommendations
 
 1. Disable SNMP v1 and v2c
 Both of this versions are communicationg in plain-text.
